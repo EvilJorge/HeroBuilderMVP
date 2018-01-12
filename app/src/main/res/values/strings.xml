@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">HeroBuilder</string>
+
+    <!-- Tab Labels -->
+    <string name="abilities_tab_label">Abilities</string>
+    <string name="race_tab_label">Race</string>
+    <string name="class_tab_label">Class</string>
+    <string name="skills_tab_label">Skills</string>
+    <string name="feats_tab_label">Feats</string>
+    <string name="equipment_tab_label">Equipment</string>
+    <string name="details_tab_label">Details</string>
+    <string name="spells_tab_label">Spells</string>
+
+    <!-- Race Tab Strings -->
+    <string name="race_dwarf">Dwarf</string>
+    <string name="race_elf">Elf</string>
+    <string name="race_halfling">Halfling</string>
+    <string name="race_human">Human</string>
+
+    <string name="racial_traits_heading">Racial Traits</string>
+
+    <!-- Class Tab Strings -->
+    <string name="level_label">Level: </string>
+    <string name="experience_label">Experience: </string>
+    <string name="favored_class_label">Favored Class: </string>
+    <string name="ability_bonus_list_header">Ability Score Bonuses</string>
+
+    <string name="level_list_header">Class Levels</string>
+
+    <!-- Abilities Tab Strings -->
+    <string name="ability_scores_header">Ability Scores</string>
+
+    <string name="attack_bonus_header">Attack Bonus</string>
+    <string name="attack_bonus_label">Attack Bonus: </string>
+    <string name="melee_attack_label">Melee Attack: </string>
+    <string name="ranged_attack_label">Ranged Attack: </string>
+
+    <string name="combat_maneuvers_header">Combat Maneuvers</string>
+    <string name="cm_bonus_label">CMB: </string>
+    <string name="cm_defense_label">CMD: </string>
+
+    <string name="defenses_header">Defenses</string>
+    <string name="fortitude_label">Fortitude Save: </string>
+    <string name="reflex_label">Reflex Save: </string>
+    <string name="willpower_label">Willpower Save: </string>
+
+    <string name="armor_class_header">Armor Class</string>
+    <string name="armor_class_label">Armor Class: </string>
+    <string name="touch_ac_label">Touch: </string>
+    <string name="flatfooted_ac_label">Flat-Footed: </string>
+
+    <string name="miscellaneous_header">Miscellaneous</string>
+    <string name="initiative_label">Initiative: </string>
+    <string name="hit_points_label">Hit Points: </string>
+    <string name="speed_label">Speed: </string>
+    <string name="encumbrance_label">Encumbrance: </string>
+
+    <string name="strength_abbr_label">STR</string>
+    <string name="strength_label">Strength</string>
+
+    <string name="dexterity_abbr_label">DEX</string>
+    <string name="dexterity_label">Dexterity</string>
+
+    <string name="constitution_abbr_label">CON</string>
+    <string name="constitution_label">Constitution</string>
+
+    <string name="intelligence_abbr_label">INT</string>
+    <string name="intelligence_label">Intelligence</string>
+
+    <string name="wisdom_abbr_label">WIS</string>
+    <string name="wisdom_label">Wisdom</string>
+
+    <string name="charisma_abbr_label">CHA</string>
+    <string name="charisma_label">Charisma</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
+

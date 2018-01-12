@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="race_options">
+        <item>@string/race_dwarf</item>
+        <item>@string/race_elf</item>
+        <item>@string/race_halfling</item>
+        <item>@string/race_human</item>
+    </string-array>
+
+    <!-- Racial Traits -->
+    <string-array name="dwarf_racial_traits">
+        <item>Ability scores: +2 Con, +2 Wis, -2 Cha</item>
+        <item>Size: Medium</item>
+        <item>Slow and Steady</item>
+        <item>Darkvision</item>
+        <item>Defensive Training</item>
+        <item>Greed</item>
+        <item>Hatred</item>
+        <item>Hardy</item>
+        <item>Stability</item>
+        <item>Stonecunning</item>
+        <item>Weapon Familiarity: battleaxes, heavy picks, and warhammers</item>
+        <item>Languages: Common, Dwarven</item>
+    </string-array>
+
+    <string-array name="elf_racial_traits">
+        <item>Ability Scores: +2 Dex, +2 Int, -2 Con</item>
+        <item>Size: Medium</item>
+        <item>Normal Speed</item>
+        <item>Low-Light Vision</item>
+        <item>Elven Immunities</item>
+        <item>Elven Magic</item>
+        <item>Keen Senses</item>
+        <item>Weapon Familiarity: longbows, longswords, rapiers, and shortbows</item>
+        <item>Languages: Common, Elven</item>
+    </string-array>
+
+    <string-array name="halfling_racial_traits">
+        <item>Ability Scores: +2 Dex, +2 Cha, -2 Str</item>
+        <item>Size: Small</item>
+        <item>Slow Speed</item>
+        <item>Fearless</item>
+        <item>Halfling Luck</item>
+        <item>Keen Senses</item>
+        <item>Sure-Footed</item>
+        <item>Weapon Familiarity: slings</item>
+        <item>Languages: Common, Halfling</item>
+    </string-array>
+
+    <string-array name="human_racial_traits">
+        <item>Ability Scores: +2 to One Ability Score</item>
+        <item>Size: Medium</item>
+        <item>Normal Speed</item>
+        <item>Bonus Feat</item>
+        <item>Skilled</item>
+        <item>Languages: Common</item>
+    </string-array>
+
+</resources>

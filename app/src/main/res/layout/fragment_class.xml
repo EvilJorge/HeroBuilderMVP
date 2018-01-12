@@ -1,0 +1,65 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/PathFinder.Standard"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.android.herobuilder_mvp.PathFinder.view.ClassFragment">
+
+    <!-- Level, Experience, Etc -->
+    <LinearLayout
+        android:id="@+id/level_info_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:id="@+id/level_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/level_label"
+            style="@style/PathFinder.Standard.Label"/>
+
+        <TextView
+            android:id="@+id/favored_class_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favored_class_label"
+            style="@style/PathFinder.Standard.Label"/>
+
+        <TextView
+            android:id="@+id/ability_bonus_list_header_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ability_bonus_list_header"
+            style="@style/PathFinder.Standard.Header"/>
+
+    </LinearLayout>
+
+    <!-- Class Level List -->
+    <TextView
+        android:id="@+id/class_level_list_header_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/level_list_header"
+        style="@style/PathFinder.Standard.Header"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/level_info_box"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ListView
+        android:id="@+id/class_level_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_level_list_header_textview"
+        app:layout_constraintLeft_toLeftOf="@id/class_level_list_header_textview"/>
+
+</android.support.constraint.ConstraintLayout>

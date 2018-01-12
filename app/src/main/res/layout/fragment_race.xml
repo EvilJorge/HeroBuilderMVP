@@ -1,0 +1,51 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/PathFinder.Standard"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.android.herobuilder_mvp.PathFinder.view.RaceFragment">
+
+    <TextView
+        android:id="@+id/race_label"
+        style="@style/PathFinder.Standard.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/race_tab_label"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/race_spinner"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Spinner
+        android:id="@+id/race_spinner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/race_label"
+        app:layout_constraintTop_toTopOf="@id/race_label"
+        app:layout_constraintBottom_toBottomOf="@id/race_label"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/racial_traits_header"
+        style="@style/PathFinder.Standard.Header"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/racial_traits_heading"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/race_spinner" />
+
+    <ListView
+        android:id="@+id/racial_traits_listview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/racial_traits_header"
+        app:layout_constraintLeft_toLeftOf="@id/racial_traits_header"
+        app:layout_constraintRight_toRightOf="@id/racial_traits_header"/>
+
+</android.support.constraint.ConstraintLayout>

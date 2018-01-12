@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/attribute_abbr_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strength_abbr_label"
+        style="@style/PathFinder.Standard.AbilityAbbreviation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/attribute_label_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strength_label"
+        style="@style/PathFinder.Standard.AbilityLabel"
+        app:layout_constraintTop_toBottomOf="@id/attribute_abbr_textview"
+        app:layout_constraintLeft_toLeftOf="@id/attribute_abbr_textview"
+        app:layout_constraintRight_toRightOf="@id/attribute_abbr_textview"/>
+
+    <Button
+        android:id="@+id/attribute_decrement_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/arrow_left_button"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintLeft_toRightOf="@id/attribute_abbr_textview"
+        app:layout_constraintTop_toTopOf="@id/attribute_value_textview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_value_textview"/>
+
+    <TextView
+        android:id="@+id/attribute_value_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:layout_marginLeft="0dp"
+        style="@style/PathFinder.Standard.AbilityValue"
+        app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"
+        app:layout_constraintLeft_toRightOf="@id/attribute_decrement_button"/>
+
+    <Button
+        android:id="@+id/attribute_increment_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/arrow_right_button"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toRightOf="@id/attribute_value_textview"
+        app:layout_constraintTop_toTopOf="@id/attribute_value_textview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_value_textview"/>
+
+    <TextView
+        android:id="@+id/attribute_bonus_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="+4"
+        app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"
+        app:layout_constraintLeft_toRightOf="@id/attribute_increment_button"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

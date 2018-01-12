@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Tab Selector Colors -->
+    <color name="tab_background_selected">#888888</color>
+    <color name="tab_background_unselected">#CCCCCC</color>
+    <color name="tab_text_selected">#C2D7F9</color>
+
+    <!-- Pathfinder Colors -->
+    <color name="pfBrown">#773A04</color>
+    <color name="pfBeige">#F2C68C</color>
+    <color name="pfDarkGrey">#555555</color>
+    <color name="pfPaleYellow">#FFF9AA</color>
+</resources>
