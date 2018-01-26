@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+    <Button
+        android:id="@+id/decrement_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/arrow_left_button"
+        android:layout_toLeftOf="@id/value_textview"/>
+
+    <TextView
+        android:id="@+id/value_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/increment_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/arrow_right_button" />
+</merge>

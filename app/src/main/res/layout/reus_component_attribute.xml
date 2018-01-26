@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:snpicker="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +10,7 @@
         android:id="@+id/attribute_abbr_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/strength_abbr_label"
+        android:text="@string/attribute_abbr_placeholder"
         style="@style/PathFinder.Standard.AbilityAbbreviation"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -18,18 +19,32 @@
         android:id="@+id/attribute_label_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/strength_label"
+        android:text="@string/attribute_placeholder"
         style="@style/PathFinder.Standard.AbilityLabel"
         app:layout_constraintTop_toBottomOf="@id/attribute_abbr_textview"
         app:layout_constraintLeft_toLeftOf="@id/attribute_abbr_textview"
         app:layout_constraintRight_toRightOf="@id/attribute_abbr_textview"/>
 
+    <com.example.android.herobuilder_mvp.view.ScrollingNumberPicker
+        android:id="@+id/attribute_value_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        snpicker:value="10"
+        snpicker:minvalue="3"
+        snpicker:maxvalue="20"
+        style="@style/PathFinder.Standard.AbilityValue"
+        app:layout_constraintLeft_toRightOf="@id/attribute_abbr_textview"
+        app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"/>
+<!--
     <Button
         android:id="@+id/attribute_decrement_button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/arrow_left_button"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toRightOf="@id/attribute_abbr_textview"
         app:layout_constraintTop_toTopOf="@id/attribute_value_textview"
         app:layout_constraintBottom_toBottomOf="@id/attribute_value_textview"/>
@@ -47,14 +62,14 @@
 
     <Button
         android:id="@+id/attribute_increment_button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/arrow_right_button"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toRightOf="@id/attribute_value_textview"
         app:layout_constraintTop_toTopOf="@id/attribute_value_textview"
         app:layout_constraintBottom_toBottomOf="@id/attribute_value_textview"/>
-
+-->
     <TextView
         android:id="@+id/attribute_bonus_textview"
         android:layout_width="wrap_content"
@@ -63,7 +78,7 @@
         android:text="+4"
         app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
         app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"
-        app:layout_constraintLeft_toRightOf="@id/attribute_increment_button"
+        app:layout_constraintLeft_toRightOf="@id/attribute_value_picker"
         app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

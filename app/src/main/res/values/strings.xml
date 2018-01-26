@@ -73,7 +73,8 @@
     <string name="charisma_abbr_label">CHA</string>
     <string name="charisma_label">Charisma</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Placeholder Strings -->
+    <string name="attribute_abbr_placeholder">ATR</string>
+    <string name="attribute_placeholder">Attribute</string>
 </resources>
 

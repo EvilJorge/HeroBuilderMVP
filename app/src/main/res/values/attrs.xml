@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ScrollingNumberPicker">
+        <!-- Variable Attributes -->
+        <attr name="value" format="integer"/>
+        <attr name="minvalue" format="integer"/>
+        <attr name="maxvalue" format="integer"/>
+
+        <!-- Style Attributes -->
+        <attr name="value_background" format="reference"/>
+        <attr name="value_width" format="dimension"/>
+        <attr name="value_text_color" format="reference"/>
+        <attr name="value_text_size" format="dimension"/>
+    </declare-styleable>
+</resources>
