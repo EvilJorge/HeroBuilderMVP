@@ -50,5 +50,12 @@ public interface MVP_PathFinder {
      */
     interface ProvidedModelOps {
         // Model operations permitted to Presenter
+        String getCharacterName();
+        void setCharacterName(String name);
+
+        // Abilities operations
+        int getAbilityValue(String ability);
+        void setAbilityValue(String ability, int value);
+        int getAbilityModifier(String ability);
     }
 }

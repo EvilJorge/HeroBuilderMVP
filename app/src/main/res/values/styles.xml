@@ -64,10 +64,9 @@
 
     <!-- Ability Score Styles -->
     <style name="PathFinder.Standard.AbilityLabel">
-        <item name="android:minWidth">70dp</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/pfDarkGrey</item>
-        <item name="android:textSize">10sp</item>
+        <item name="abbreviation_background">@android:color/transparent</item>
+        <item name="abbreviation_text_color">@android:color/black</item>
+        <item name="label_text_color">@color/pfDarkGrey</item>
     </style>
 
     <style name="PathFinder.Standard.AbilityAbbreviation">

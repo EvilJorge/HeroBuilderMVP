@@ -7,15 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.android.herobuilder_mvp.R;
+import com.example.android.herobuilder_mvp.view.AttributeComboLabel;
+import com.example.android.herobuilder_mvp.view.ScrollingNumberPicker;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AbilitiesFragment extends Fragment
-        implements View.OnClickListener{
+        implements ScrollingNumberPicker.OnValueChangedListener{
 
     // Attribute Constants
     private final static int STRENGTH = 1;
@@ -25,15 +26,16 @@ public class AbilitiesFragment extends Fragment
     private final static int WISDOM = 5;
     private final static int CHARISMA = 6;
 
-    OnAttributeUpdatedListener mCallback;
+    // Callback listener to communicate with parent
+    private OnAttributeUpdatedListener mCallback;
 
     // Attribute Views
-    private View mStrengthView;
-    private View mDexterityView;
-    private View mConstitutionView;
-    private View mIntelligenceView;
-    private View mWisdomView;
-    private View mCharismaView;
+    private ScrollingNumberPicker mStrengthPicker;
+    private ScrollingNumberPicker mDexterityPicker;
+    private ScrollingNumberPicker mConstitutionPicker;
+    private ScrollingNumberPicker mIntelligencePicker;
+    private ScrollingNumberPicker mWisdomPicker;
+    private ScrollingNumberPicker mCharismaPicker;
 
     public AbilitiesFragment() {
         // Required empty public constructor
@@ -68,74 +70,37 @@ public class AbilitiesFragment extends Fragment
      */
 
     private void setupViews(View view){
-        TextView abbrText;
-        TextView labelText;
-        //Button incrementAttribute;
-        //Button decrementAttribute;
+        AttributeComboLabel attributeLabelView;
 
         // Strength Attribute view
-        mStrengthView = (View) view.findViewById(R.id.strength);
-        abbrText = (TextView) mStrengthView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mStrengthView.findViewById(R.id.attribute_label_textview);
-        //incrementAttribute = (Button) mStrengthView.findViewById(R.id.attribute_increment_button);
-        //decrementAttribute = (Button) mStrengthView.findViewById(R.id.attribute_decrement_button);
-        abbrText.setText(R.string.strength_abbr_label);
-        labelText.setText(R.string.strength_label);
-        //incrementAttribute.setOnClickListener(this);
-        //decrementAttribute.setOnClickListener(this);
+        mStrengthPicker = (ScrollingNumberPicker) view.findViewById(R.id.strength_value_picker);
 
         // Dexterity Attribute view
-        mDexterityView = (View) view.findViewById(R.id.dexterity);
-        abbrText = (TextView) mDexterityView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mDexterityView.findViewById(R.id.attribute_label_textview);
-        abbrText.setText(R.string.dexterity_abbr_label);
-        labelText.setText(R.string.dexterity_label);
+        mDexterityPicker = (ScrollingNumberPicker) view.findViewById(R.id.dexterity_value_picker);
 
         // Constitution Attribute view
-        mConstitutionView = (View) view.findViewById(R.id.constitution);
-        abbrText = (TextView) mConstitutionView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mConstitutionView.findViewById(R.id.attribute_label_textview);
-        abbrText.setText(R.string.constitution_abbr_label);
-        labelText.setText(R.string.constitution_label);
+        mConstitutionPicker = (ScrollingNumberPicker) view.findViewById(R.id.constitution_value_picker);
 
         // Intelligence Attribute view
-        mIntelligenceView = (View) view.findViewById(R.id.intelligence);
-        abbrText = (TextView) mIntelligenceView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mIntelligenceView.findViewById(R.id.attribute_label_textview);
-        abbrText.setText(R.string.intelligence_abbr_label);
-        labelText.setText(R.string.intelligence_label);
+        mIntelligencePicker = (ScrollingNumberPicker) view.findViewById(R.id.intelligence_value_picker);
 
         // Wisdom Attribute view
-        mWisdomView = (View) view.findViewById(R.id.wisdom);
-        abbrText = (TextView) mWisdomView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mWisdomView.findViewById(R.id.attribute_label_textview);
-        abbrText.setText(R.string.wisdom_abbr_label);
-        labelText.setText(R.string.wisdom_label);
+        mWisdomPicker = (ScrollingNumberPicker) view.findViewById(R.id.wisdom_value_picker);
 
         // Charisma Attribute view
-        mCharismaView = (View) view.findViewById(R.id.charisma);
-        abbrText = (TextView) mCharismaView.findViewById(R.id.attribute_abbr_textview);
-        labelText = (TextView) mCharismaView.findViewById(R.id.attribute_label_textview);
-        abbrText.setText(R.string.charisma_abbr_label);
-        labelText.setText(R.string.charisma_label);
+        mCharismaPicker = (ScrollingNumberPicker) view.findViewById(R.id.charisma_value_picker);
     }
 
     /** Click Handler **/
 
     @Override
-    public void onClick(View v){
-
-    }
-
-    /** Attribute Methods **/
-    public void incrementAttribute(int attributeID){
-
+    public void OnValueChanged(ScrollingNumberPicker snpicker, int value){
+        mCallback.onAttributeUpdated(value);
     }
 
     /** Attribute Update Callback Interface **/
 
     public interface OnAttributeUpdatedListener{
-        public void onAttributeDecremented(String Attribute);
-        public void onAttributeIncremented(String Attribute);
+        public void onAttributeUpdated(int value);
     }
 }

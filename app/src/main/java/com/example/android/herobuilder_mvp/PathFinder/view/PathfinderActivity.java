@@ -13,8 +13,11 @@ public class PathfinderActivity
         extends AppCompatActivity
         implements MVP_PathFinder.RequiredViewOps, AbilitiesFragment.OnAttributeUpdatedListener {
 
+    private MVP_PathFinder.ProvidedPresenterOps mPresenter;
+
+    // Pager and Adapter
     private CharacterPagerAdapter mPFCharacterPagerAdapter;
-    ViewPager mPFCharacterViewPager;
+    private ViewPager mPFCharacterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +58,7 @@ public class PathfinderActivity
     /** OnAttributesUpdated Methods **/
 
     @Override
-    public void onAttributeDecremented(String attribute){
-
-    }
-
-    @Override
-    public void onAttributeIncremented(String attribute){
+    public void onAttributeUpdated(int value){
 
     }
 }

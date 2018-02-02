@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <TextView
         android:id="@+id/attribute_abbr_textview"
         android:layout_width="wrap_content"
@@ -24,6 +25,16 @@
         app:layout_constraintTop_toBottomOf="@id/attribute_abbr_textview"
         app:layout_constraintLeft_toLeftOf="@id/attribute_abbr_textview"
         app:layout_constraintRight_toRightOf="@id/attribute_abbr_textview"/>
+        -->
+
+    <com.example.android.herobuilder_mvp.view.AttributeComboLabel
+        android:id="@+id/attribute_label_comboview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attribute_placeholder"
+        style="@style/PathFinder.Standard.AbilityLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <com.example.android.herobuilder_mvp.view.ScrollingNumberPicker
         android:id="@+id/attribute_value_picker"
@@ -35,9 +46,9 @@
         snpicker:minvalue="3"
         snpicker:maxvalue="20"
         style="@style/PathFinder.Standard.AbilityValue"
-        app:layout_constraintLeft_toRightOf="@id/attribute_abbr_textview"
-        app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
-        app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"/>
+        app:layout_constraintLeft_toRightOf="@id/attribute_label_comboview"
+        app:layout_constraintTop_toTopOf="@id/attribute_label_comboview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_label_comboview"/>
 <!--
     <Button
         android:id="@+id/attribute_decrement_button"
@@ -76,8 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:text="+4"
-        app:layout_constraintTop_toTopOf="@id/attribute_abbr_textview"
-        app:layout_constraintBottom_toBottomOf="@id/attribute_label_textview"
+        app:layout_constraintTop_toTopOf="@id/attribute_label_comboview"
+        app:layout_constraintBottom_toBottomOf="@id/attribute_label_comboview"
         app:layout_constraintLeft_toRightOf="@id/attribute_value_picker"
         app:layout_constraintRight_toRightOf="parent"/>
 

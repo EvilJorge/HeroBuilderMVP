@@ -12,4 +12,14 @@
         <attr name="value_text_color" format="reference"/>
         <attr name="value_text_size" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="AttributeComboLabel">
+        <!-- Variable Attributes -->
+        <attr name="attribute_name" format="string"/>
+
+        <!-- Style Attributes -->
+        <attr name="abbreviation_background" format="reference"/>
+        <attr name="abbreviation_text_color" format="reference"/>
+        <attr name="label_text_color" format="reference"/>
+    </declare-styleable>
 </resources>

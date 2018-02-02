@@ -5,7 +5,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +39,22 @@ public class ScrollingNumberPicker extends LinearLayout {
     private Button mDecrementButton;
     private Button mIncrementButton;
     private TextView mValueTextView;
+
+    // Value Changed Listener
+    private OnValueChangedListener mOnValueChangedListener;
+
+    /**
+     * Identifier for the state to save the current value of
+     * the number picker
+     */
+
+    private static String STATE_CURRENT_VALUE = "CurrentValue";
+
+    /**
+     * Identifier for the state of the super class.
+     */
+
+    private static String STATE_SUPER_CLASS = "SuperClass";
 
     public ScrollingNumberPicker(Context context){
         super(context);
@@ -73,6 +92,8 @@ public class ScrollingNumberPicker extends LinearLayout {
      *           the current context for the view.
      */
     private void initializeViews(Context context){
+        mOnValueChangedListener = null;
+
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.scrollingnumberpicker_view, this);
@@ -86,6 +107,11 @@ public class ScrollingNumberPicker extends LinearLayout {
         TextView currentValue;
         currentValue = (TextView) this.findViewById(R.id.value_textview);
         currentValue.setText(Integer.toString(mValue));
+
+        // Notify listener
+        if(mOnValueChangedListener != null){
+            mOnValueChangedListener.OnValueChanged(this, mValue);
+        }
     }
 
     public void setMinValue(int value){
@@ -99,6 +125,18 @@ public class ScrollingNumberPicker extends LinearLayout {
     public int getValue(){
         return mValue;
     }
+
+    public void setOnValueChangedListener(OnValueChangedListener listener){
+        mOnValueChangedListener = listener;
+    }
+
+    /** Interface for value change listener **/
+
+    public interface OnValueChangedListener {
+        void OnValueChanged(ScrollingNumberPicker snpicker, int value);
+    }
+
+    /** Override super class methods **/
 
     @Override
     protected void onFinishInflate(){
@@ -139,5 +177,45 @@ public class ScrollingNumberPicker extends LinearLayout {
         mValueTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mValueTextSize);
 
         setValue(mValue);
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable(STATE_SUPER_CLASS, super.onSaveInstanceState());
+
+        bundle.putInt(STATE_CURRENT_VALUE, mValue);
+
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state){
+        if(state instanceof Bundle){
+            Bundle bundle = (Bundle) state;
+
+            super.onRestoreInstanceState(bundle.getParcelable(STATE_SUPER_CLASS));
+
+            setValue(bundle.getInt(STATE_CURRENT_VALUE));
+        } else {
+            super.onRestoreInstanceState(state);
+        }
+    }
+
+    @Override
+    protected void dispatchSaveInstanceState(SparseArray<Parcelable> container){
+        // Makes sure that the state of the child views in the scrolling
+        // number picker are not saved since we handle the state in the
+        // onSaveInstanceState.
+        super.dispatchFreezeSelfOnly(container);
+    }
+
+    @Override
+    protected void dispatchRestoreInstanceState(SparseArray<Parcelable> container){
+        // Makes sure that the state of the child views in the scrolling
+        // number picker are not restored since we handle the state in the
+        // onSaveInstanceState.
+        super.dispatchThawSelfOnly(container);
     }
 }
