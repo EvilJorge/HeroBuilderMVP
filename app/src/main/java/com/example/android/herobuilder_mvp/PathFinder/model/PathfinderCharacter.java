@@ -19,10 +19,17 @@ public class PathfinderCharacter {
 
     /** Constructors **/
     public PathfinderCharacter(){
-        // Basic blank constructor
+        // Initialize attributes
+        strength = 10;
+        dexterity = 10;
+        constitution = 10;
+        intelligence = 10;
+        wisdom = 10;
+        charisma = 10;
     }
 
     public PathfinderCharacter(String name){
+        this();
         characterName = name;
     }
 }

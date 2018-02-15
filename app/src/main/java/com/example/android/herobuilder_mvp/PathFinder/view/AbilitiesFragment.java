@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.android.herobuilder_mvp.R;
 import com.example.android.herobuilder_mvp.view.AttributeComboLabel;
@@ -27,15 +28,18 @@ public class AbilitiesFragment extends Fragment
     private final static int CHARISMA = 6;
 
     // Callback listener to communicate with parent
-    private OnAttributeUpdatedListener mCallback;
+    private OnAbilityUpdatedListener mCallback;
 
-    // Attribute Views
+    // Ability Views
     private ScrollingNumberPicker mStrengthPicker;
     private ScrollingNumberPicker mDexterityPicker;
     private ScrollingNumberPicker mConstitutionPicker;
     private ScrollingNumberPicker mIntelligencePicker;
     private ScrollingNumberPicker mWisdomPicker;
     private ScrollingNumberPicker mCharismaPicker;
+
+    // Ability Modifier Views
+    private TextView mStrengthModifier;
 
     public AbilitiesFragment() {
         // Required empty public constructor
@@ -58,10 +62,10 @@ public class AbilitiesFragment extends Fragment
         // This makes sure the container activity has implemented
         // the callback interface.  If not, it throws an exception
         try {
-            mCallback = (OnAttributeUpdatedListener) context;
+            mCallback = (OnAbilityUpdatedListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement OnAttributeUpdatedListener");
+                    + " must implement OnAbilityUpdatedListener");
         }
     }
 
@@ -74,6 +78,7 @@ public class AbilitiesFragment extends Fragment
 
         // Strength Attribute view
         mStrengthPicker = (ScrollingNumberPicker) view.findViewById(R.id.strength_value_picker);
+        mStrengthPicker.setOnValueChangedListener(this);
 
         // Dexterity Attribute view
         mDexterityPicker = (ScrollingNumberPicker) view.findViewById(R.id.dexterity_value_picker);
@@ -91,16 +96,30 @@ public class AbilitiesFragment extends Fragment
         mCharismaPicker = (ScrollingNumberPicker) view.findViewById(R.id.charisma_value_picker);
     }
 
+    /**
+     * Calculate and populate the values of this page.
+     */
+    public void calculatePageFields(){
+        // Calculate Ability Modifiers
+
+    }
+
     /** Click Handler **/
 
     @Override
     public void OnValueChanged(ScrollingNumberPicker snpicker, int value){
-        mCallback.onAttributeUpdated(value);
+        // Callback to parent Activity to update data value
+        switch(snpicker.getId()){
+            case R.id.strength_value_picker:
+                mCallback.onAbilityUpdated(STRENGTH, value);
+                break;
+        }
+
     }
 
     /** Attribute Update Callback Interface **/
 
-    public interface OnAttributeUpdatedListener{
-        public void onAttributeUpdated(int value);
+    interface OnAbilityUpdatedListener {
+        public void onAbilityUpdated(int ability, int value);
     }
 }

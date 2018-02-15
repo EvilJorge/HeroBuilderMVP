@@ -25,18 +25,26 @@ public interface MVP_PathFinder {
         // View operations permitted to Presenter
         Context getAppContext();
         Context getActivityContext();
+
+        // Ability Fragment View notifications
+        void refreshAbilitiesPage();
     }
 
     /**
      * Operations offered to View to communicate with Presenter.
      * Processes user interactions, sends data requests to Model, etc.
+     *      View to Presenter
      */
     interface ProvidedPresenterOps{
         // Presenter operations permitted to View
+        void setView(RequiredViewOps view);
+
+        void updateAbilityValue(int ability, int value);
     }
 
     /**
      * Required Presenter Methods made available to Model.
+     *      Model to Presenter
      */
     interface RequiredPresenterOps{
         // Presenter operations permitted to Model
@@ -54,8 +62,11 @@ public interface MVP_PathFinder {
         void setCharacterName(String name);
 
         // Abilities operations
-        int getAbilityValue(String ability);
-        void setAbilityValue(String ability, int value);
-        int getAbilityModifier(String ability);
+        int getAbilityValue(int ability);
+        void setAbilityValue(int ability, int value);
+        int getAbilityModifier(int ability);
+
+        // Load Data from storage
+        boolean loadData();
     }
 }

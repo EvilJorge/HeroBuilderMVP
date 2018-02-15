@@ -9,6 +9,14 @@ import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
 public class PathfinderModel
         implements MVP_PathFinder.ProvidedModelOps {
 
+    // Attribute Constants
+    private final static int STRENGTH = 1;
+    private final static int DEXTERITY = 2;
+    private final static int CONSTITUTION = 3;
+    private final static int INTELLIGENCE = 4;
+    private final static int WISDOM = 5;
+    private final static int CHARISMA = 6;
+
     // Presenter reference
     private MVP_PathFinder.RequiredPresenterOps mPresenter;
 
@@ -21,7 +29,10 @@ public class PathfinderModel
      */
     public PathfinderModel(MVP_PathFinder.RequiredPresenterOps presenter){
         this.mPresenter = presenter;
+        mPathfinderCharacter = new PathfinderCharacter();
     }
+
+    /** Provided Model Ops **/
 
     /**
      * Gets the name of the character
@@ -44,19 +55,19 @@ public class PathfinderModel
      * Gets the value of an ability.
      * @param ability Name of ability.
      */
-    public int getAbilityValue(String ability){
+    public int getAbilityValue(int ability){
         switch(ability){
-            case "strength":
+            case STRENGTH:
                 return mPathfinderCharacter.strength;
-            case "dexterity":
+            case DEXTERITY:
                 return mPathfinderCharacter.dexterity;
-            case "constitution":
+            case CONSTITUTION:
                 return mPathfinderCharacter.constitution;
-            case "intelligence":
+            case INTELLIGENCE:
                 return mPathfinderCharacter.intelligence;
-            case "wisdom":
+            case WISDOM:
                 return mPathfinderCharacter.wisdom;
-            case "charisma":
+            case CHARISMA:
                 return mPathfinderCharacter.charisma;
             default:
                 return 0;
@@ -68,19 +79,19 @@ public class PathfinderModel
      * @param ability Name of ability
      * @param value value of ability
      */
-    public void setAbilityValue(String ability, int value){
+    public void setAbilityValue(int ability, int value){
         switch(ability){
-            case "strength":
+            case STRENGTH:
                 mPathfinderCharacter.strength = value;
-            case "dexterity":
+            case DEXTERITY:
                 mPathfinderCharacter.dexterity = value;
-            case "constitution":
+            case CONSTITUTION:
                 mPathfinderCharacter.constitution = value;
-            case "intelligence":
+            case INTELLIGENCE:
                 mPathfinderCharacter.intelligence = value;
-            case "wisdom":
+            case WISDOM:
                 mPathfinderCharacter.wisdom = value;
-            case "charisma":
+            case CHARISMA:
                 mPathfinderCharacter.charisma = value;
         }
     }
@@ -89,26 +100,26 @@ public class PathfinderModel
      * Gets the value of an ability.
      * @param ability Name of ability.
      */
-    public int getAbilityModifier(String ability){
+    public int getAbilityModifier(int ability){
         int abilityValue;
 
         switch(ability){
-            case "strength":
+            case STRENGTH:
                 abilityValue = mPathfinderCharacter.strength;
                 break;
-            case "dexterity":
+            case DEXTERITY:
                 abilityValue = mPathfinderCharacter.dexterity;
                 break;
-            case "constitution":
+            case CONSTITUTION:
                 abilityValue = mPathfinderCharacter.constitution;
                 break;
-            case "intelligence":
+            case INTELLIGENCE:
                 abilityValue = mPathfinderCharacter.intelligence;
                 break;
-            case "wisdom":
+            case WISDOM:
                 abilityValue = mPathfinderCharacter.wisdom;
                 break;
-            case "charisma":
+            case CHARISMA:
                 abilityValue = mPathfinderCharacter.charisma;
                 break;
             default:
@@ -116,5 +127,15 @@ public class PathfinderModel
         }
 
         return (abilityValue - 10) / 2;
+    }
+
+    /**
+     * Loads character data from data storage
+     * @return true with success
+     */
+    @Override
+    public boolean loadData(){
+        // This does nothing for now.
+        return true;
     }
 }
