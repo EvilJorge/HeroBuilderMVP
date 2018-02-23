@@ -39,7 +39,10 @@ public interface MVP_PathFinder {
         // Presenter operations permitted to View
         void setView(RequiredViewOps view);
 
+        // Ops for Abilities Page
         void updateAbilityValue(int ability, int value);
+        int getAbilityValue(int ability);
+        int getAbilityModifier(int ability);
     }
 
     /**

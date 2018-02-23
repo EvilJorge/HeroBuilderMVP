@@ -1,6 +1,7 @@
 package com.example.android.herobuilder_mvp.PathFinder.presenter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
 
@@ -79,8 +80,33 @@ public class PathfinderPresenter
         // Update value in Model.
         mModel.setAbilityValue(ability, value);
 
+        Log.d("DEBUG", ability + " is being updated.");
         // Refresh Abilities Page
         getView().refreshAbilitiesPage();
+    }
+
+    /**
+     * Called by View to retrieve Ability Value
+     * @param ability Ability value to retrieve
+     * @return Ability's value
+     */
+    @Override
+    public int getAbilityValue(int ability){
+        return mModel.getAbilityValue(ability);
+    }
+
+    /**
+     * Called by View to calculate Ability Modifier
+     * @param ability Ability modifier to retrieve
+     * @return Ability's modifier
+     */
+    @Override
+    public int getAbilityModifier(int ability){
+        int modifier;
+
+        modifier = mModel.getAbilityModifier(ability);
+
+        return modifier;
     }
 
     /** Required Presenter Ops **/

@@ -2,20 +2,19 @@ package com.example.android.herobuilder_mvp.PathFinder.model;
 
 import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
 
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.CHARISMA;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.CONSTITUTION;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.DEXTERITY;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.INTELLIGENCE;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.STRENGTH;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.WISDOM;
+
 /**
  * Created by cpalomares on 2/2/2018.
  */
 
 public class PathfinderModel
         implements MVP_PathFinder.ProvidedModelOps {
-
-    // Attribute Constants
-    private final static int STRENGTH = 1;
-    private final static int DEXTERITY = 2;
-    private final static int CONSTITUTION = 3;
-    private final static int INTELLIGENCE = 4;
-    private final static int WISDOM = 5;
-    private final static int CHARISMA = 6;
 
     // Presenter reference
     private MVP_PathFinder.RequiredPresenterOps mPresenter;
@@ -56,22 +55,32 @@ public class PathfinderModel
      * @param ability Name of ability.
      */
     public int getAbilityValue(int ability){
+        int value;
+
         switch(ability){
             case STRENGTH:
-                return mPathfinderCharacter.strength;
+                value = mPathfinderCharacter.strength;
+                break;
             case DEXTERITY:
-                return mPathfinderCharacter.dexterity;
+                value = mPathfinderCharacter.dexterity;
+                break;
             case CONSTITUTION:
-                return mPathfinderCharacter.constitution;
+                value = mPathfinderCharacter.constitution;
+                break;
             case INTELLIGENCE:
-                return mPathfinderCharacter.intelligence;
+                value = mPathfinderCharacter.intelligence;
+                break;
             case WISDOM:
-                return mPathfinderCharacter.wisdom;
+                value = mPathfinderCharacter.wisdom;
+                break;
             case CHARISMA:
-                return mPathfinderCharacter.charisma;
+                value = mPathfinderCharacter.charisma;
+                break;
             default:
-                return 0;
+                value = 0;
         }
+
+        return value;
     }
 
     /**
@@ -83,21 +92,26 @@ public class PathfinderModel
         switch(ability){
             case STRENGTH:
                 mPathfinderCharacter.strength = value;
+                break;
             case DEXTERITY:
                 mPathfinderCharacter.dexterity = value;
+                break;
             case CONSTITUTION:
                 mPathfinderCharacter.constitution = value;
+                break;
             case INTELLIGENCE:
                 mPathfinderCharacter.intelligence = value;
+                break;
             case WISDOM:
                 mPathfinderCharacter.wisdom = value;
+                break;
             case CHARISMA:
                 mPathfinderCharacter.charisma = value;
         }
     }
 
     /**
-     * Gets the value of an ability.
+     * Gets the value of an ability modifier.
      * @param ability Name of ability.
      */
     public int getAbilityModifier(int ability){

@@ -1,23 +1,25 @@
 package com.example.android.herobuilder_mvp.PathFinder.view;
 
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
 import com.example.android.herobuilder_mvp.PathFinder.model.PathfinderModel;
 import com.example.android.herobuilder_mvp.PathFinder.presenter.PathfinderPresenter;
 import com.example.android.herobuilder_mvp.R;
 import com.example.android.herobuilder_mvp.common.StateMaintainer;
-import com.example.android.herobuilder_mvp.presenter.MainPresenter;
 import com.example.android.herobuilder_mvp.view.MainActivity;
+
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.ABILITIES;
 
 public class PathfinderActivity
         extends AppCompatActivity
-        implements MVP_PathFinder.RequiredViewOps, AbilitiesFragment.OnAbilityUpdatedListener {
+        implements MVP_PathFinder.RequiredViewOps, AbilitiesFragment.AbilitiesPageListener {
 
     private MVP_PathFinder.ProvidedPresenterOps mPresenter;
 
@@ -76,6 +78,10 @@ public class PathfinderActivity
             // Set Presenter model
             presenter.setModel(model);
 
+            // Add Presenter and Model to StateMaintainer
+            mStateMaintainer.put(presenter);
+            mStateMaintainer.put(model);
+
             // Set the Presenter as an interface
             // to limit the communication with it
             mPresenter = presenter;
@@ -83,7 +89,7 @@ public class PathfinderActivity
         // get the Presenter from StateMaintainer
         else{
             // Get the Presenter
-            mPresenter = mStateMaintainer.get(MainPresenter.class.getName());
+            mPresenter = mStateMaintainer.get(PathfinderPresenter.class.getName());
             // Update the View in Presenter
             mPresenter.setView(this);
         }
@@ -108,17 +114,45 @@ public class PathfinderActivity
     @Override
     public void refreshAbilitiesPage(){
         AbilitiesFragment abilitiesFragment = (AbilitiesFragment)
-                mPFFragmentManager.findFragmentById(R.id.abilities_fragment);
+                mPFCharacterPagerAdapter.getItem(ABILITIES);
 
+        Log.d("DEBUG", "Is abilitiesFragment null? " + (abilitiesFragment == null));
         if (abilitiesFragment != null){
             abilitiesFragment.calculatePageFields();
         }
     }
 
-    /** OnAbilityUpdated Methods **/
+    /** AbilitiesPageListener Methods **/
 
+    /**
+     * Notification from Abilities Fragment of updated ability.
+     * @param ability Ability updated
+     * @param value New ability value
+     */
     @Override
     public void onAbilityUpdated(int ability, int value){
         mPresenter.updateAbilityValue(ability, value);
+    }
+
+    @Override
+    public int getAbilityValue(int ability){
+        int value;
+
+        value = mPresenter.getAbilityValue(ability);
+
+        return value;
+    }
+
+    /**
+     * Request from Abilities Fragment to retrieve Ability modifier
+     * @param ability Ability modifier to retrieve
+     * @return Ability modifier
+     */
+    @Override
+    public int getAbilityModifier(int ability){
+        int modifier;
+
+        modifier = mPresenter.getAbilityModifier(ability);
+        return modifier;
     }
 }
