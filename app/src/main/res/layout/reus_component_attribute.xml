@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/attribute_placeholder"
-        style="@style/PathFinder.Standard.AbilityLabel"
+        style="@style/Pathfinder.Standard.AbilityLabel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -45,7 +45,7 @@
         snpicker:value="10"
         snpicker:minvalue="3"
         snpicker:maxvalue="20"
-        style="@style/PathFinder.Standard.AbilityValue"
+        style="@style/Pathfinder.Standard.AbilityValue"
         app:layout_constraintLeft_toRightOf="@id/attribute_label_comboview"
         app:layout_constraintTop_toTopOf="@id/attribute_label_comboview"
         app:layout_constraintBottom_toBottomOf="@id/attribute_label_comboview"/>

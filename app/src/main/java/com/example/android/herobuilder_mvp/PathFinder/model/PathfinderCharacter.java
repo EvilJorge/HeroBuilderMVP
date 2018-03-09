@@ -9,6 +9,8 @@ public class PathfinderCharacter {
 
     public String characterName;
 
+    public int characterRace;
+
     // Attributes
     public int strength;
     public int dexterity;
@@ -21,11 +23,11 @@ public class PathfinderCharacter {
     public PathfinderCharacter(){
         // Initialize attributes
         strength = 10;
-        dexterity = 12;
-        constitution = 13;
-        intelligence = 14;
-        wisdom = 15;
-        charisma = 16;
+        dexterity = 10;
+        constitution = 10;
+        intelligence = 10;
+        wisdom = 10;
+        charisma = 10;
     }
 
     public PathfinderCharacter(String name){

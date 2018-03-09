@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 /**
  * Created by cpalomares on 2/2/2018.
@@ -71,6 +72,27 @@ public class PathfinderPresenter
     /** Provided Presenter Ops **/
 
     /**
+     * Called by View when a race is selected.
+     * @param race Selected race
+     */
+    @Override
+    public void setRace(int race){
+        // Update race in Model.
+        mModel.setRace(race);
+    }
+
+    /**
+     * Called by View to retrieve list of racial traits from
+     * model.
+     * @return List of racial traits.
+     */
+    @Override
+    public ArrayList<String> getRacialTraits(){
+        // Retrieve list of racial traits.
+        return mModel.getRacialTraits();
+    }
+
+    /**
      * Called by View when attribute picker value is updated.
      * @param ability Attribute to be updated.
      * @param value Value to be set on attribute.
@@ -81,6 +103,32 @@ public class PathfinderPresenter
         mModel.setAbilityValue(ability, value);
 
         Log.d("DEBUG", ability + " is being updated.");
+        // Refresh Abilities Page
+        getView().refreshAbilitiesPage();
+    }
+
+    /**
+     * Called by View when attribute picker is incremented.
+     * @param ability Ability that is incremented.
+     */
+    @Override
+    public void incrementAbilityValue(int ability){
+        // Increment value in Model.
+        mModel.incrementAbilityValue(ability);
+
+        // Refresh Abilities Page
+        getView().refreshAbilitiesPage();
+    }
+
+    /**
+     * Called by View when attribute picker is decremented.
+     * @param ability Ability that is decremented.
+     */
+    @Override
+    public void decrementAbilityValue(int ability){
+        // Decrement value in Model.
+        mModel.decrementAbilityValue(ability);
+
         // Refresh Abilities Page
         getView().refreshAbilitiesPage();
     }

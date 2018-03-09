@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/PathFinder.Standard"
+    style="@style/Pathfinder.Standard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.android.herobuilder_mvp.PathFinder.view.ClassFragment">
 
@@ -23,21 +23,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/level_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/favored_class_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/favored_class_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/ability_bonus_list_header_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ability_bonus_list_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/level_list_header"
-        style="@style/PathFinder.Standard.Header"
+        style="@style/Pathfinder.Standard.Header"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"

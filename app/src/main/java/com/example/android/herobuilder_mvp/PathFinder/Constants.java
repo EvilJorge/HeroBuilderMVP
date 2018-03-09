@@ -15,6 +15,15 @@ public interface Constants {
     public static final int DETAILS = 6;
     public static final int SPELLS = 7;
 
+    // Keys used to reference races
+    public static final int DWARF = 0;
+    public static final int ELF = 1;
+    public static final int GNOME = 2;
+    public static final int HALFELF = 3;
+    public static final int HALFORC = 4;
+    public static final int HALFLING = 5;
+    public static final int HUMAN = 6;
+
     // Keys used to reference abilities
     public static final int STRENGTH = 1;
     public static final int DEXTERITY = 2;

@@ -1,10 +1,21 @@
 package com.example.android.herobuilder_mvp.PathFinder.model;
 
 import com.example.android.herobuilder_mvp.PathFinder.MVP_PathFinder;
+import com.example.android.herobuilder_mvp.R;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.CHARISMA;
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.CONSTITUTION;
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.DEXTERITY;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.DWARF;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.ELF;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.GNOME;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.HALFELF;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.HALFLING;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.HALFORC;
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.HUMAN;
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.INTELLIGENCE;
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.STRENGTH;
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.WISDOM;
@@ -46,6 +57,46 @@ public class PathfinderModel
      */
     public void setCharacterName(String name){
         mPathfinderCharacter.characterName = name;
+    }
+
+    /** Race Operations **/
+
+    /**
+     * Sets the character's race
+     * @param race Selected race
+     */
+    public void setRace(int race){
+        mPathfinderCharacter.characterRace = race;
+    }
+
+    public ArrayList<String> getRacialTraits(){
+        ArrayList<String> traitsList;
+
+        switch(mPathfinderCharacter.characterRace){
+            case DWARF: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.dwarf_racial_traits)));
+                break;
+            case ELF: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.elf_racial_traits)));
+                break;
+            case GNOME: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.gnome_racial_traits)));
+                break;
+            case HALFELF: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.halfelf_racial_traits)));
+                break;
+            case HALFORC: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.halforc_racial_traits)));
+                break;
+            case HALFLING: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.halfling_racial_traits)));
+                break;
+            case HUMAN:
+                default: traitsList = new ArrayList<String>
+                    (Arrays.asList(mPresenter.getAppContext().getResources().getStringArray(R.array.human_racial_traits)));
+        }
+
+        return traitsList;
     }
 
     /** Ability Operations **/
@@ -111,34 +162,65 @@ public class PathfinderModel
     }
 
     /**
+     * Increments the value of an ability by 1.
+     * @param ability Ability to increment.
+     */
+    public void incrementAbilityValue(int ability){
+        switch(ability){
+            case STRENGTH:
+                mPathfinderCharacter.strength++;
+                break;
+            case DEXTERITY:
+                mPathfinderCharacter.dexterity++;
+                break;
+            case CONSTITUTION:
+                mPathfinderCharacter.constitution++;
+                break;
+            case INTELLIGENCE:
+                mPathfinderCharacter.intelligence++;
+                break;
+            case WISDOM:
+                mPathfinderCharacter.wisdom++;
+                break;
+            case CHARISMA:
+                mPathfinderCharacter.charisma++;
+        }
+    }
+
+    /**
+     * Decrements the value of an ability by 1.
+     * @param ability Ability to decrement.
+     */
+    public void decrementAbilityValue(int ability){
+        switch(ability){
+            case STRENGTH:
+                mPathfinderCharacter.strength--;
+                break;
+            case DEXTERITY:
+                mPathfinderCharacter.dexterity--;
+                break;
+            case CONSTITUTION:
+                mPathfinderCharacter.constitution--;
+                break;
+            case INTELLIGENCE:
+                mPathfinderCharacter.intelligence--;
+                break;
+            case WISDOM:
+                mPathfinderCharacter.wisdom--;
+                break;
+            case CHARISMA:
+                mPathfinderCharacter.charisma--;
+        }
+    }
+
+    /**
      * Gets the value of an ability modifier.
      * @param ability Name of ability.
      */
     public int getAbilityModifier(int ability){
         int abilityValue;
 
-        switch(ability){
-            case STRENGTH:
-                abilityValue = mPathfinderCharacter.strength;
-                break;
-            case DEXTERITY:
-                abilityValue = mPathfinderCharacter.dexterity;
-                break;
-            case CONSTITUTION:
-                abilityValue = mPathfinderCharacter.constitution;
-                break;
-            case INTELLIGENCE:
-                abilityValue = mPathfinderCharacter.intelligence;
-                break;
-            case WISDOM:
-                abilityValue = mPathfinderCharacter.wisdom;
-                break;
-            case CHARISMA:
-                abilityValue = mPathfinderCharacter.charisma;
-                break;
-            default:
-                return 0;
-        }
+        abilityValue = getAbilityValue(ability);
 
         return (abilityValue - 10) / 2;
     }

@@ -15,11 +15,16 @@ import com.example.android.herobuilder_mvp.R;
 import com.example.android.herobuilder_mvp.common.StateMaintainer;
 import com.example.android.herobuilder_mvp.view.MainActivity;
 
+import java.util.ArrayList;
+
 import static com.example.android.herobuilder_mvp.PathFinder.Constants.ABILITIES;
 
 public class PathfinderActivity
         extends AppCompatActivity
-        implements MVP_PathFinder.RequiredViewOps, AbilitiesFragment.AbilitiesPageListener {
+        implements
+        MVP_PathFinder.RequiredViewOps,
+        AbilitiesFragment.AbilitiesPageListener,
+        RaceFragment.RacePageListener {
 
     private MVP_PathFinder.ProvidedPresenterOps mPresenter;
 
@@ -122,6 +127,28 @@ public class PathfinderActivity
         }
     }
 
+    /** RacePageListener Methods **/
+
+    /**
+     * Notification from Race Fragment that a race has been
+     * selected
+     * @param race Race that has been selected
+     */
+    @Override
+    public void onRaceSelected(int race){
+        mPresenter.setRace(race);
+    }
+
+    /**
+     * Request to Presenter for Racial Traits
+     * @return List of Racial Traits
+     */
+    @Override
+    public ArrayList<String> getRacialTraits(){
+        // Return list from Presenter
+        return mPresenter.getRacialTraits();
+    }
+
     /** AbilitiesPageListener Methods **/
 
     /**
@@ -134,6 +161,29 @@ public class PathfinderActivity
         mPresenter.updateAbilityValue(ability, value);
     }
 
+    /**
+     * Notification from Abilities Fragment to increment ability by 1.
+     * @param ability Ability to be incremented.
+     */
+    @Override
+    public void onAbilityIncremented(int ability){
+        mPresenter.incrementAbilityValue(ability);
+    }
+
+    /**
+     * Notification from Abilities Fragment to decrement ability by 1.
+     * @param ability Ability to be decremented.
+     */
+    @Override
+    public void onAbilityDecremented(int ability){
+        mPresenter.decrementAbilityValue(ability);
+    }
+
+    /**
+     * Request from Abilities Fragment to retrieve Ability value
+     * @param ability Ability value to retrieve
+     * @return Ability value
+     */
     @Override
     public int getAbilityValue(int ability){
         int value;

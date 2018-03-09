@@ -2,6 +2,8 @@ package com.example.android.herobuilder_mvp.PathFinder;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 /**
  * Holder interface that will contain all interfaces
  * responsible to maintain communication between
@@ -39,8 +41,14 @@ public interface MVP_PathFinder {
         // Presenter operations permitted to View
         void setView(RequiredViewOps view);
 
+        // Ops for Race Page
+        void setRace(int race);
+        ArrayList<String> getRacialTraits();
+
         // Ops for Abilities Page
         void updateAbilityValue(int ability, int value);
+        void incrementAbilityValue(int ability);
+        void decrementAbilityValue(int ability);
         int getAbilityValue(int ability);
         int getAbilityModifier(int ability);
     }
@@ -64,9 +72,15 @@ public interface MVP_PathFinder {
         String getCharacterName();
         void setCharacterName(String name);
 
+        // Race operations
+        void setRace(int race);
+        ArrayList<String> getRacialTraits();
+
         // Abilities operations
         int getAbilityValue(int ability);
         void setAbilityValue(int ability, int value);
+        void incrementAbilityValue(int ability);
+        void decrementAbilityValue(int ability);
         int getAbilityModifier(int ability);
 
         // Load Data from storage

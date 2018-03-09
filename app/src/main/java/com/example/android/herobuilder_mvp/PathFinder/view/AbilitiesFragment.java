@@ -4,7 +4,6 @@ package com.example.android.herobuilder_mvp.PathFinder.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,24 +148,56 @@ public class AbilitiesFragment extends Fragment
         int wisModifier;
         int chaModifier;
 
+        String sign;
+
         // Calculate and set Ability Modifiers
         strModifier = mCallback.getAbilityModifier(STRENGTH);
-        mStrengthModifierView.setText(Integer.toString(strModifier));
+        if (strModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mStrengthModifierView.setText(sign + Integer.toString(strModifier));
 
         dexModifier = mCallback.getAbilityModifier(DEXTERITY);
-        mDexterityModifierView.setText(Integer.toString(dexModifier));
+        if (dexModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mDexterityModifierView.setText(sign + Integer.toString(dexModifier));
 
         conModifier = mCallback.getAbilityModifier(CONSTITUTION);
-        mConstitutionModifierView.setText(Integer.toString(conModifier));
+        if (conModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mConstitutionModifierView.setText(sign + Integer.toString(conModifier));
 
         intModifier = mCallback.getAbilityModifier(INTELLIGENCE);
-        mIntelligenceModifierView.setText(Integer.toString(intModifier));
+        if (intModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mIntelligenceModifierView.setText(sign + Integer.toString(intModifier));
 
         wisModifier = mCallback.getAbilityModifier(WISDOM);
-        mWisdomModifierView.setText(Integer.toString(wisModifier));
+        if (wisModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mWisdomModifierView.setText(sign + Integer.toString(wisModifier));
 
         chaModifier = mCallback.getAbilityModifier(CHARISMA);
-        mCharismaModifierView.setText(Integer.toString(chaModifier));
+        if (chaModifier > 0) {
+            sign = "+";
+        } else {
+            sign = "";
+        }
+        mCharismaModifierView.setText(sign + Integer.toString(chaModifier));
     }
 
     /** Click Handler **/
@@ -178,11 +209,9 @@ public class AbilitiesFragment extends Fragment
         switch(snpicker.getId()){
             case R.id.strength_value_picker:
                 mCallback.onAbilityUpdated(STRENGTH, value);
-                Log.d("DEBUG", STRENGTH + " value was changed.");
                 break;
             case R.id.dexterity_value_picker:
                 mCallback.onAbilityUpdated(DEXTERITY, value);
-                Log.d("DEBUG", DEXTERITY + " value was changed.");
                 break;
             case R.id.constitution_value_picker:
                 mCallback.onAbilityUpdated(CONSTITUTION, value);
@@ -199,11 +228,67 @@ public class AbilitiesFragment extends Fragment
 
     }
 
+    @Override
+    public void OnValueIncremented(ScrollingNumberPicker snpicker){
+        // Callback to parent Activity to increment data value
+
+        switch(snpicker.getId()){
+            case R.id.strength_value_picker:
+                mCallback.onAbilityIncremented(STRENGTH);
+                break;
+            case R.id.dexterity_value_picker:
+                mCallback.onAbilityIncremented(DEXTERITY);
+                break;
+            case R.id.constitution_value_picker:
+                mCallback.onAbilityIncremented(CONSTITUTION);
+                break;
+            case R.id.intelligence_value_picker:
+                mCallback.onAbilityIncremented(INTELLIGENCE);
+                break;
+            case R.id.wisdom_value_picker:
+                mCallback.onAbilityIncremented(WISDOM);
+                break;
+            case R.id.charisma_value_picker:
+                mCallback.onAbilityIncremented(CHARISMA);
+        }
+    }
+
+    @Override
+    public void OnValueDecremented(ScrollingNumberPicker snpicker){
+        // Callback to parent Activity to increment data value
+
+        switch(snpicker.getId()){
+            case R.id.strength_value_picker:
+                mCallback.onAbilityDecremented(STRENGTH);
+                break;
+            case R.id.dexterity_value_picker:
+                mCallback.onAbilityDecremented(DEXTERITY);
+                break;
+            case R.id.constitution_value_picker:
+                mCallback.onAbilityDecremented(CONSTITUTION);
+                break;
+            case R.id.intelligence_value_picker:
+                mCallback.onAbilityDecremented(INTELLIGENCE);
+                break;
+            case R.id.wisdom_value_picker:
+                mCallback.onAbilityDecremented(WISDOM);
+                break;
+            case R.id.charisma_value_picker:
+                mCallback.onAbilityDecremented(CHARISMA);
+        }
+    }
+
     /** Attribute Update Callback Interface **/
 
     interface AbilitiesPageListener {
         // Notify parent of ability update.
         void onAbilityUpdated(int ability, int value);
+
+        // Notify parent ability has been incremented by 1.
+        void onAbilityIncremented(int ability);
+
+        // Notify parent ability has been decremented by 1.
+        void onAbilityDecremented(int ability);
 
         // Get ability value from parent.
         int getAbilityValue(int ability);

@@ -39,18 +39,22 @@
 
     <!-- Pathfinder Styles -->
 
-    <style name="PathFinder" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Pathfinder" parent="Theme.AppCompat.DayNight.DarkActionBar">
     </style>
 
-    <style name="PathFinder.Standard">
+    <style name="Pathfinder.Standard">
         <item name="android:background">@color/pfBeige</item>
     </style>
 
-    <style name="PathFinder.Standard.Label">
+    <style name="Pathfinder.Standard.Label">
         <item name="android:textColor">@color/pfDarkGrey</item>
     </style>
 
-    <style name="PathFinder.Standard.Header">
+    <style name="Pathfinder.Standard.FreeLabel">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Pathfinder.Standard.Header">
         <item name="android:background">@color/pfBrown</item>
         <item name="android:textColor">@color/pfBeige</item>
         <item name="android:gravity">center</item>
@@ -58,18 +62,18 @@
         <item name="android:paddingRight">3dp</item>
     </style>
 
-    <style name="PathFinder.Standard.ListItem">
+    <style name="Pathfinder.Standard.ListItem">
         <item name="android:textSize">12sp</item>
     </style>
 
     <!-- Ability Score Styles -->
-    <style name="PathFinder.Standard.AbilityLabel">
+    <style name="Pathfinder.Standard.AbilityLabel">
         <item name="abbreviation_background">@android:color/transparent</item>
         <item name="abbreviation_text_color">@android:color/black</item>
         <item name="label_text_color">@color/pfDarkGrey</item>
     </style>
 
-    <style name="PathFinder.Standard.AbilityAbbreviation">
+    <style name="Pathfinder.Standard.AbilityAbbreviation">
         <item name="android:minWidth">70dp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@android:color/black</item>
@@ -77,7 +81,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="PathFinder.Standard.AbilityValue">
+    <style name="Pathfinder.Standard.AbilityValue">
         <item name="value_background">@drawable/attribute_background</item>
         <item name="value_width">35dp</item>
         <item name="value_text_color">@color/pfDarkGrey</item>

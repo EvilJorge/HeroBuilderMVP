@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/PathFinder.Standard"
+    style="@style/Pathfinder.Standard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.android.herobuilder_mvp.PathFinder.view.RaceFragment">
 
     <TextView
         android:id="@+id/race_label"
-        style="@style/PathFinder.Standard.Label"
+        style="@style/Pathfinder.Standard.FreeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/race_tab_label"
@@ -24,6 +24,7 @@
         android:id="@+id/race_spinner"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background"
         app:layout_constraintLeft_toRightOf="@id/race_label"
         app:layout_constraintTop_toTopOf="@id/race_label"
         app:layout_constraintBottom_toBottomOf="@id/race_label"
@@ -31,7 +32,7 @@
 
     <TextView
         android:id="@+id/racial_traits_header"
-        style="@style/PathFinder.Standard.Header"
+        style="@style/Pathfinder.Standard.Header"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/racial_traits_heading"

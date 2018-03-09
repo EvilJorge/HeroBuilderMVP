@@ -103,7 +103,7 @@ public class ScrollingNumberPicker extends LinearLayout {
     public void setValue(int value){
         mValue = value;
 
-        // Display the value.
+        // Display the new value.
         TextView currentValue;
         currentValue = (TextView) this.findViewById(R.id.value_textview);
         currentValue.setText(Integer.toString(mValue));
@@ -126,6 +126,36 @@ public class ScrollingNumberPicker extends LinearLayout {
         return mValue;
     }
 
+    public void incrementValue(){
+        // Increment the value
+        mValue++;
+
+        // Display the new value.
+        TextView currentValue;
+        currentValue = (TextView) this.findViewById(R.id.value_textview);
+        currentValue.setText(Integer.toString(mValue));
+
+        // Notify listener
+        if(mOnValueChangedListener != null){
+            mOnValueChangedListener.OnValueIncremented(this);
+        }
+    }
+
+    public void decrementValue(){
+        // Decrement the value
+        mValue--;
+
+        // Display the new value.
+        TextView currentValue;
+        currentValue = (TextView) this.findViewById(R.id.value_textview);
+        currentValue.setText(Integer.toString(mValue));
+
+        // Notify listener
+        if(mOnValueChangedListener != null){
+            mOnValueChangedListener.OnValueDecremented(this);
+        }
+    }
+
     public void setOnValueChangedListener(OnValueChangedListener listener){
         mOnValueChangedListener = listener;
     }
@@ -134,6 +164,10 @@ public class ScrollingNumberPicker extends LinearLayout {
 
     public interface OnValueChangedListener {
         void OnValueChanged(ScrollingNumberPicker snpicker, int value);
+
+        void OnValueIncremented(ScrollingNumberPicker snpicker);
+
+        void OnValueDecremented(ScrollingNumberPicker snpicker);
     }
 
     /** Override super class methods **/
@@ -150,7 +184,7 @@ public class ScrollingNumberPicker extends LinearLayout {
             @Override
             public void onClick(View view) {
                 if (mValue > mMinValue) {
-                    setValue(mValue - 1);
+                    decrementValue();
                 }
             }
         });
@@ -161,7 +195,7 @@ public class ScrollingNumberPicker extends LinearLayout {
             @Override
             public void onClick(View view) {
                 if (mValue < mMaxValue) {
-                    setValue(mValue + 1);
+                    incrementValue();
                 }
             }
         });

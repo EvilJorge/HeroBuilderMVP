@@ -5,7 +5,7 @@
     android:id="@+id/abilities_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/PathFinder.Standard"
+    style="@style/Pathfinder.Standard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context="com.example.android.herobuilder_mvp.PathFinder.view.AbilitiesFragment">
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ability_scores_header"
-            style="@style/PathFinder.Standard.Header"
+            style="@style/Pathfinder.Standard.Header"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/strength_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/attributes_header"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -48,7 +48,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/strength_label_comboview"
             app:layout_constraintTop_toTopOf="@id/strength_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/strength_label_comboview"/>
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/dexterity_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/strength_label_comboview"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -83,7 +83,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/dexterity_label_comboview"
             app:layout_constraintTop_toTopOf="@id/dexterity_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/dexterity_label_comboview"/>
@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/constitution_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/dexterity_label_comboview"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -118,7 +118,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/constitution_label_comboview"
             app:layout_constraintTop_toTopOf="@id/constitution_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/constitution_label_comboview"/>
@@ -141,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/intelligence_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/constitution_label_comboview"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -153,7 +153,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/intelligence_label_comboview"
             app:layout_constraintTop_toTopOf="@id/intelligence_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/intelligence_label_comboview"/>
@@ -177,7 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/wisdom_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/intelligence_label_comboview"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -189,7 +189,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/wisdom_label_comboview"
             app:layout_constraintTop_toTopOf="@id/wisdom_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/wisdom_label_comboview"/>
@@ -212,7 +212,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:attribute_name="@string/charisma_label"
-            style="@style/PathFinder.Standard.AbilityLabel"
+            style="@style/Pathfinder.Standard.AbilityLabel"
             app:layout_constraintTop_toBottomOf="@id/wisdom_label_comboview"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -224,7 +224,7 @@
             android:gravity="center"
             custom:minvalue="3"
             custom:maxvalue="20"
-            style="@style/PathFinder.Standard.AbilityValue"
+            style="@style/Pathfinder.Standard.AbilityValue"
             app:layout_constraintLeft_toRightOf="@id/charisma_label_comboview"
             app:layout_constraintTop_toTopOf="@id/charisma_label_comboview"
             app:layout_constraintBottom_toBottomOf="@id/charisma_label_comboview"/>
@@ -258,140 +258,140 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/attack_bonus_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
         <TextView
             android:id="@+id/attack_bonus_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/attack_bonus_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/melee_attack_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/melee_attack_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/ranged_attack_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ranged_attack_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <!-- Combat Maneuvers -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/combat_maneuvers_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
         <TextView
             android:id="@+id/cmb_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cm_bonus_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/cmd_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cm_defense_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <!-- Armor Class -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/armor_class_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
         <TextView
             android:id="@+id/armor_class_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/armor_class_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/touch_ac_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/touch_ac_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/flatfooted_ac_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/flatfooted_ac_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <!-- Defenses -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/defenses_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
         <TextView
             android:id="@+id/fortitude_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/fortitude_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/reflex_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/reflex_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/willpower_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/willpower_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <!-- Miscellaneous -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/miscellaneous_header"
-            style="@style/PathFinder.Standard.Header"/>
+            style="@style/Pathfinder.Standard.Header"/>
 
         <TextView
             android:id="@+id/initiative_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/initiative_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/hit_point_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hit_points_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/speed_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/speed_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
         <TextView
             android:id="@+id/encumbrance_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/encumbrance_label"
-            style="@style/PathFinder.Standard.Label"/>
+            style="@style/Pathfinder.Standard.Label"/>
 
     </LinearLayout>
 </LinearLayout>
