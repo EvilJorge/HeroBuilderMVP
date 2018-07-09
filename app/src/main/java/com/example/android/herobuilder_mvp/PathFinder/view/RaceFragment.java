@@ -66,9 +66,13 @@ public class RaceFragment extends Fragment
             mCallback = (RacePageListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement AbilitiesPageListener");
+                    + " must implement RacePageListener");
         }
     }
+
+    /**
+     * Set up views.
+     */
 
     private void setupViews(View view){
         // Initialize Spinner
@@ -83,13 +87,37 @@ public class RaceFragment extends Fragment
         // Set OnItemSelectedListener
         mRaceSpinner.setOnItemSelectedListener(this);
 
-        mRacialTraitsListView = (ListView) view.findViewById(R.id.racial_traits_listview);
+        mRacialTraitsListView = view.findViewById(R.id.racial_traits_listview);
+
+        loadRacialTraits();
     }
 
-    /** Item Selected Handler **/
+    /**
+     * Populate Racial Traits List
+     */
+
+    public void loadRacialTraits(){
+        ArrayList<String> traitsList = mCallback.getRacialTraits();
+        int raceSpinnerPosition = mCallback.getRace();
+
+        mRaceSpinner.setSelection(raceSpinnerPosition);
+
+        if(mRacialTraitsListAdapter == null){
+            mRacialTraitsListAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item_racial_trait, traitsList);
+        } else {
+            mRacialTraitsListAdapter.clear();
+            mRacialTraitsListAdapter.addAll(traitsList);
+            mRacialTraitsListAdapter.notifyDataSetChanged();
+        }
+        mRacialTraitsListView.setAdapter(mRacialTraitsListAdapter);
+    }
+
+    /**
+     *  Item Selected Handler
+     */
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id){
-        ArrayList<String> traitsList;
+//        ArrayList<String> traitsList;
 
         // Populate Racial Trait list based on race selected.
         switch(position){
@@ -108,16 +136,17 @@ public class RaceFragment extends Fragment
             default: mCallback.onRaceSelected(HUMAN);
         }
 
-        traitsList = mCallback.getRacialTraits();
-
-        if(mRacialTraitsListAdapter == null){
-            mRacialTraitsListAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item_racial_trait, traitsList);
-            mRacialTraitsListView.setAdapter(mRacialTraitsListAdapter);
-        } else {
-            mRacialTraitsListAdapter.clear();
-            mRacialTraitsListAdapter.addAll(traitsList);
-            mRacialTraitsListAdapter.notifyDataSetChanged();
-        }
+        loadRacialTraits();
+//        traitsList = mCallback.getRacialTraits();
+//
+//        if(mRacialTraitsListAdapter == null){
+//            mRacialTraitsListAdapter = new ArrayAdapter<String>(getContext(), R.layout.list_item_racial_trait, traitsList);
+//            mRacialTraitsListView.setAdapter(mRacialTraitsListAdapter);
+//        } else {
+//            mRacialTraitsListAdapter.clear();
+//            mRacialTraitsListAdapter.addAll(traitsList);
+//            mRacialTraitsListAdapter.notifyDataSetChanged();
+//        }
     }
 
     public void onNothingSelected(AdapterView<?> parent){
@@ -128,6 +157,9 @@ public class RaceFragment extends Fragment
     interface RacePageListener {
         // Notify parent of race selected
         void onRaceSelected(int race);
+
+        // Return character's race
+        int getRace();
 
         // Return list of racial abilities
         ArrayList<String> getRacialTraits();

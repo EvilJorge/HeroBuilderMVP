@@ -69,6 +69,18 @@ public class PathfinderModel
         mPathfinderCharacter.characterRace = race;
     }
 
+    /**
+     * Return the character's race
+     * @return Race value.
+     */
+    public int getRace(){
+        return mPathfinderCharacter.characterRace;
+    }
+
+    /**
+     * Returns the list of Racial Traits based on the race of the character.
+     * @return Racial Traits List
+     */
     public ArrayList<String> getRacialTraits(){
         ArrayList<String> traitsList;
 

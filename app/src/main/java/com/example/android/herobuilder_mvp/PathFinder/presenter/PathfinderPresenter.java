@@ -82,6 +82,16 @@ public class PathfinderPresenter
     }
 
     /**
+     * Called by View to retrieve race from model.
+     * @return Race value.
+     */
+    @Override
+    public int getRace(){
+        // Retrieve race from Model
+        return mModel.getRace();
+    }
+
+    /**
      * Called by View to retrieve list of racial traits from
      * model.
      * @return List of racial traits.

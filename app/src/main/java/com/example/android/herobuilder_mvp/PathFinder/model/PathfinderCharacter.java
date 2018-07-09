@@ -1,5 +1,7 @@
 package com.example.android.herobuilder_mvp.PathFinder.model;
 
+import static com.example.android.herobuilder_mvp.PathFinder.Constants.ELF;
+
 /**
  * Created by cpalomares on 2/2/2018.
  */
@@ -21,9 +23,12 @@ public class PathfinderCharacter {
 
     /** Constructors **/
     public PathfinderCharacter(){
+        // Initialize Race
+        characterRace = ELF;
+
         // Initialize attributes
         strength = 10;
-        dexterity = 10;
+        dexterity = 16;
         constitution = 10;
         intelligence = 10;
         wisdom = 10;

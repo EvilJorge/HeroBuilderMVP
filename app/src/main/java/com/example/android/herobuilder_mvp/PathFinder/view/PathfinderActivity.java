@@ -140,6 +140,15 @@ public class PathfinderActivity
     }
 
     /**
+     * Request to Presenter for Character's Race
+     * @return Race value
+     */
+    @Override
+    public int getRace(){
+        return mPresenter.getRace();
+    }
+
+    /**
      * Request to Presenter for Racial Traits
      * @return List of Racial Traits
      */

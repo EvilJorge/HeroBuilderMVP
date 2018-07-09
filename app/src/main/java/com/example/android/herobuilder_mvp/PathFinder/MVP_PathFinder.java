@@ -43,6 +43,7 @@ public interface MVP_PathFinder {
 
         // Ops for Race Page
         void setRace(int race);
+        int getRace();
         ArrayList<String> getRacialTraits();
 
         // Ops for Abilities Page
@@ -74,6 +75,7 @@ public interface MVP_PathFinder {
 
         // Race operations
         void setRace(int race);
+        int getRace();
         ArrayList<String> getRacialTraits();
 
         // Abilities operations
